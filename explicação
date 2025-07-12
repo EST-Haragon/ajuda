@@ -1,0 +1,59 @@
+
+
+--------------------------------SISTEMA BASICO PARA GALVANICA-------------------------------------------------
+
+Um unico sistema acessado por todos, mas cada colaborador limitado por suas funçoes
+Recepção: Responsável por cadastro de clientes
+          Fazer as ordens de s erviço
+
+Foto: Tirar fotos de todas as mercadorias, e anexa-las na ordem de serviço
+      Contagem de mercadorias, e separação das mesmas
+      Adição de informações adicionais na ordem de serviço
+
+Produção: Leitura da ordem de serviço, e preparação para o processo
+          Possibilidade de adição de informações na ordem de serviço
+          Impressão de etiquetas para as mercadorias para facilitar o controle
+
+Controle: Pesagem das mercadorias que estão sendo processadas, e controlando os reforços dos tanques
+
+Expedição: Leitura da ordem de serviço completa, e expeção das mercadorias
+           separação de mercadorias a serem re-processadas
+OBS.
+*Cada ordem de serviço terá um QRCODE, que será impresso na etiqueta da mercadoria, e também estará disponível no sistema.
+*Esse QRCODE será utilizado para rastrear a mercadoria em todos os setores, facilitando o controle e a comunicação entre os setores.
+*Cada setor terá acesso ao sistema, podendo visualizar as ordens de serviço e as mercadorias que estão sob sua responsabilidade.
+*Quando cada setor pegas a mercadoria e escanear o qrcode da OS ( Ordem de Serviço), avisará o cliente que a sua mercadoria
+ja esta no setor.
+*Cada setor que precise de uma balança para efetuar a conferencia, ou a adição a OS, será de forma totalmente automática ( a própria balança ira adicionar o peso ao sistema, também haverá a possibilidade de ser manual.)
+*Caso haja algum erro de pesagem, ou algum problema inesparado, o sistema irá notificar o responsável do setor, e pedirá
+uma confirmação do gerente ou encarregado do setor, para que o erro seja corrigido.
+*
+----------------------------------------------------------------------------------------------------------
+
+______________________________________Cliente______________________________________________________
+
+*Nesse sistema, o cliente terá acesso a um portal onde poderá acompanhar o status de suas ordens de serviço.
+*Ele poderá visualizar as mercadorias que estão em processo, as que já foram finalizadas e as que estão pendentes.
+*O cliente também poderá visualizar informações adicionais, como fotos ou observações, que serão anexadas àordem de serviço.
+*Alem de informações como o preço das suas mercadorias, e o valor total da ordem de serviço, junto com o valor do Ouro do dia.
+*O cliente poderá fazer reclamaões ou solicitações diretamente pelo portal, que serão encaminhadas para o setor responsável.
+
+_______________________________________________________________________________________________________________________
+
+----------------------------------------Gerenciamento--------------------------------------------------------
+*Haverá um painel de controle para os gerentes, onde poderão visualizar todas as ordens de serviço em andamento, pendentes e finalizadas.
+*Os gerentes poderão adicionar, editar ou excluir ordens de serviço, além de gerenciar os setores e colaboradores.
+*O sistema também terá um módulo de relatórios, onde os gerentes poderão visualizar estatísticas sobre o desempenho da empresa, como tempo médio de processamento, número de ordens de serviço por dia, entre outros.
+*Haverá um sistema de notificações, onde os gerentes serão avisados sobre qualquer cliente que tenha feito uma reclamação ou solicitação, e também sobre qualquer erro ou problema que ocorra no sistema.
+*Junto com uma lista de clientes inativos a mais de 30 dias.
+*Tambem haverá uma forma de consumo de metal, com uma previão de consumo, junto com uma previão de aumento do valor do ouro.
+*Um controle de Manutenção dos tanques, com dastas e quilos banhados apontando datas de manutenção, e o que foi feito e terá que ser feito na manutenção.
+*O sistema também terá um módulo de segurança, onde os gerentes poderão gerenciar os acessos dos colaboradores, garantindo que cada um tenha acesso apenas às informações e funcionalidades necessárias para suas funções.
+*Haverá um sistema de backup automático, garantindo que todas as informações do sistema sejam salvas periodicamente, evitando a perda de dados em caso de falhas.
+*O sistema será desenvolvido com uma interface amigável e intuitiva, facilitando o uso por parte dos colaboradores e gerentes.
+*O sistema será acessível via web, permitindo que os colaboradores e gerentes acessem de qualquer lugar com conexão à internet.
+*Captará dados de analises dos laboratórios enviados via e-mail, e anexará automaticamente no painel de gerenciamento, com gráficos
+dinamicos e comsumo de metal.
+*Haverá uma lista de consumo de metal, com a quantidade de metal consumido por dia, semana e mês, permitindo um melhor controle do estoque.
+
+-----------------------------------------------------------------------------------------------------------------
