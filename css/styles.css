@@ -1,0 +1,123 @@
+body {
+    background: #181716;
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+}
+header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 0 16px 0;
+    justify-content: space-between;;
+}
+.qrcode-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 45px;
+}
+.qrcode-header label {
+    color: #fff;
+    margin-bottom: 8px;
+}
+.logo {
+    height: 64px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 8px;
+    margin-left: 40px;
+}
+h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+}
+main {
+    max-width: 800px;
+    margin: auto;
+}
+form {
+    width: 100%;
+}
+.dados-principais {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.dados-principais div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-bottom: 4px;
+}
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    background: #222;
+    color: #fff;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+th {
+    color: #d1a23c;
+    font-weight: bold;
+    padding: 8px;
+    background: none;
+    text-align: left;
+}
+td {
+    padding: 8px;
+    background: #222;
+}
+.adicionar-item {
+    color: #d1a23c;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+.finalizar-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.qrcode {
+    width: 100px;
+    height: 100px;
+}
+.btn-finalizar {
+    background: #d1a23c;
+    color: #181716;
+    font-size: 1.2rem;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-nova-ordem {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #d1a23c;
+    color: #181716;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 12px;
+}
+.ler-balanca{
+    display: inline-block;
+    padding: 5px 14px;
+    background: #d1a23c;
+    color: #181716;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 12px;
+    border:none;
+    border-radius: 20px;
+}

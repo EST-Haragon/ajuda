@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordem de Serviço - Salvador Galvânica</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="imagem/logo.png.png" alt="Logo Salvador Galvânica" class="logo">
+        <h1>ORDEM DE SERVIÇO</h1>
+        <div class="qrcode-header">
+            <label>QR Code da Ordem</label>
+            <canvas class="qrcode"></canvas>
+        </div>
+    </header>
+    <main>
+        <form>
+            <div class="dados-principais">
+                <div>
+                    <label for="cliente">Nome do Cliente</label>
+                    <input type="text" id="cliente" name="cliente">
+                </div>
+                <div>
+                    <label for="emissao">Data de Emissão</label>
+                    <input type="date" id="emissao" name="emissao">
+                </div>
+                <div>
+                    <label for="entrega">Data Prevista de Entrega</label>
+                    <input type="date" id="entrega" name="entrega">
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Quantidade (kg)</th>
+                        <th>Descrição da Peça</th>
+                        <th>Código</th>
+                        <th>Ações</th>
+                    </tr>
+                    <!-- <td>
+  <input type="text" placeholder="Quantidade (kg)" style="width:90px">
+  <button type="button" class="ler-balanca">Ler Balança</button>
+</td> -->
+                </thead>
+                <tbody>
+                    <!-- Itens serão adicionados aqui -->
+                </tbody>
+            </table>
+            <div class="adicionar-item" style="user-select:none;cursor:pointer;">
+                + Adicionar novo item
+            </div>
+            <div class="finalizar-area">
+                <button type="button" class="btn-finalizar">
+                    FINALIZAR ORDEM
+                </button>
+    <a href= index.html class="btn-nova-ordem">voltar</a>
+            
+            </div>
+        </form>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script>
+    // Função para adicionar evento de exclusão em todos os botões
+    function atualizarEventosExcluir() {
+        document.querySelectorAll('.excluir-item').forEach(btn => {
+            btn.onclick = function() {
+                this.closest('tr').remove();
+            };
+        });
+    }
+
+document.querySelector('.adicionar-item').addEventListener('click', function() {
+    const tbody = document.querySelector('table tbody');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td>
+            <input type="text" placeholder="Quantidade (kg)" style="width:90px">
+            <button type="button" class="ler-balanca">Ler Balança</button>
+        </td>
+        <td><input type="text" placeholder="Descrição"></td>
+        <td><input type="text" placeholder="Código" style="width:70px"></td>
+        <td><button type="button" class="excluir-item">Excluir</button></td>
+    `;
+    tbody.appendChild(tr);
+    atualizarEventosExcluir();
+    atualizarEventosBalanca();
+});
+
+// Função para eventos do botão Ler Balança
+function atualizarEventosBalanca() {
+    document.querySelectorAll('.ler-balanca').forEach(btn => {
+        btn.onclick = function() {
+            // Aqui você fará a requisição para o backend que lê a balança
+            // Exemplo:
+            fetch('http://localhost:3000/api/balanca')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.valor) {
+                        this.previousElementSibling.value = data.valor;
+                    } else {
+                        alert('Não foi possível ler a balança.');
+                    }
+                })
+                .catch(() => alert('Erro ao conectar à balança.'));
+        };
+    });
+}
+
+// Inicializa eventos de exclusão e balança para itens já existentes
+atualizarEventosExcluir();
+atualizarEventosBalanca();
+
+    // Função para gerar um identificador único para cada ordem
+    function gerarIdUnico() {
+        return 'OS-' + Date.now() + '-' + Math.floor(Math.random() * 10000);
+    }
+
+    // Gerar QR Code com o identificador único da ordem
+    function gerarQRCode(ordemId) {
+        new QRious({
+            element: document.querySelector('.qrcode'),
+            value: ordemId,
+            size: 100
+        });
+    }
+
+    // Ao finalizar ordem, gera ID, QR Code e exibe alerta
+    document.querySelector('.btn-finalizar').addEventListener('click', function() {
+        // Coleta dados da ordem
+        const cliente = document.getElementById('cliente').value;
+        const emissao = document.getElementById('emissao').value;
+        const entrega = document.getElementById('entrega').value;
+        let itens = [];
+        document.querySelectorAll('table tbody tr').forEach(tr => {
+            const tds = tr.querySelectorAll('td');
+            itens.push({
+                quantidade: tds[0].querySelector('input') ? tds[0].querySelector('input').value : tds[0].innerText,
+                descricao: tds[1].querySelector('input') ? tds[1].querySelector('input').value : tds[1].innerText,
+                codigo: tds[2].querySelector('input') ? tds[2].querySelector('input').value : tds[2].innerText
+            });
+        });
+
+        // Gera identificador único
+        const ordemId = gerarIdUnico();
+
+        // Aqui você pode salvar os dados no backend usando ordemId como chave
+
+        // Gera o QR Code apenas com o ID da ordem
+        gerarQRCode(ordemId);
+
+        alert('Ordem finalizada! QR Code gerado para consulta.');
+    });
+
+    // Chama a função para os itens já existentes (se houver)
+    atualizarEventosExcluir();
+    </script>
+</body>
+</html>
