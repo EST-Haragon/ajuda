@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel de Gestor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Painel de Gestão de Colaboradores</h1>
+
+  <!-- 🔍 Filtros -->
+  <section id="filtros">
+    <input type="text" id="buscaNome" placeholder="Buscar por nome...">
+    <select id="filtroSetor">
+      <option value="">Todos os setores</option>
+      <option value="recepcao">Recepção</option>
+      <option value="foto">Foto</option>
+      <option value="producao">Produção</option>
+      <option value="controle">Controle</option>
+      <option value="expedicao">Expedição</option>
+      <option value="gerente">Gerente</option>
+    </select>
+    <button onclick="filtrarColaboradores()">Filtrar</button>
+  </section>
+
+  <!-- ➕ Botão de cadastro -->
+  <button onclick="abrirFormulario()">+ Novo Colaborador</button>
+
+  <!-- 📋 Tabela de colaboradores -->
+  <table id="tabelaColaboradores">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Setor</th>
+        <th>Permissões</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Linhas geradas dinamicamente via JS -->
+    </tbody>
+  </table>
+
+  <!-- 🧾 Formulário -->
+  <div id="formularioColaborador" style="display: none;">
+    <h2>Cadastro de Colaborador</h2>
+    <form onsubmit="salvarColaborador(event)">
+      <input type="hidden" id="colaboradorId">
+      <input type="text" id="nome" placeholder="Nome" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <select id="setor" required>
+        <option value="">Selecione o setor</option>
+        <option value="recepcao">Recepção</option>
+        <option value="foto">Foto</option>
+        <option value="producao">Produção</option>
+        <option value="controle">Controle</option>
+        <option value="expedicao">Expedição</option>
+        <option value="gerente">Gerente</option>
+      </select>
+      <label><input type="checkbox" id="podeEditar"> Pode Editar</label>
+      <label><input type="checkbox" id="podeExcluir"> Pode Excluir</label>
+      <label><input type="checkbox" id="acessoClientes"> Acesso ao Portal do Cliente</label>
+      <button type="submit">Salvar</button>
+      <button type="button" onclick="fecharFormulario()">Cancelar</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
